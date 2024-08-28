@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const text = "Hello, I am Pratik"; // The text to be animated
+const text = "Hello, I am Pratik"; 
 
 const textVariants = {
     hidden: {

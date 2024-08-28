@@ -18,21 +18,15 @@ function AppWrapper({ children }: { children: React.ReactNode }) {
     }, [isComplete]);
 
     return (
-        <section className="">
+        <section className="h-screen w-screen">
             <AnimatePresence>
                 {!isComplete && (
-                    <motion.div
-                        key="loading"
-                        className={`${
-                            !isLoading ? "overflow-visible" : "visible"
-                        } + " w-screen overflow-hidden"`}>
-                        <InitialLoading setIsComplete={setIsComplete} />
-                    </motion.div>
+                    <InitialLoading setIsComplete={setIsComplete} />
                 )}
-                <div className={`${isLoading ? "hidden" : "inline-block"}`}>
-                    {children}
-                </div>
             </AnimatePresence>
+            <div className={`${isLoading ? "hidden" : "inline-block"}`}>
+                {children}
+            </div>
         </section>
     );
 }
