@@ -18,15 +18,14 @@ function AppWrapper({ children }: { children: React.ReactNode }) {
     }, [isComplete]);
 
     return (
-        <section className="h-screen w-screen">
+        <section className="h-screen w-screen text-white overflow-hidden">
             <AnimatePresence>
                 {!isComplete && (
                     <InitialLoading setIsComplete={setIsComplete} />
                 )}
             </AnimatePresence>
-            <div className={`${isLoading ? "hidden" : "inline-block"}`}>
-                {children}
-            </div>
+
+            {!isLoading && children}
         </section>
     );
 }
